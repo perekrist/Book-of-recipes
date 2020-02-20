@@ -11,21 +11,33 @@ import SDWebImageSwiftUI
 
 struct ContentView: View {
     
+    @State var view = 0
     @State var size = UIScreen.main.bounds.width / 1.6
     @ObservedObject var obs = Observer()
+    @State var txt = ""
     
     var body: some View {
         ZStack {
-            Color.orange
+            Color.white.edgesIgnoringSafeArea(.all)
             NavigationView {
-                List(obs.recipes) {i in
-                    HStack {
-                        AnimatedImage(url: URL(string: i.image)).resizable()
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(20, antialiased: false)
-                        VStack {
-                            Text(i.label).bold()
-                            Text("\(i.calories) kcal")
+                VStack {
+                    HStack(spacing: 15) {
+                        Image(systemName: "magnifyingglass").font(.body)
+                        TextField("Search For Recipies", text: $obs.query)
+                    }.padding()
+                    .background(Color.orange)
+                    .cornerRadius(20)
+                    .padding(10)
+                    
+                    List(obs.recipes) {i in
+                        HStack {
+                            AnimatedImage(url: URL(string: i.image)).resizable()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(20, antialiased: false)
+                            VStack {
+                                Text(i.label).bold()
+                                Text("\(i.calories) kcal")
+                            }
                         }
                     }
                 }.navigationBarTitle("Recipes")

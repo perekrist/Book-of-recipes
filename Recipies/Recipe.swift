@@ -12,5 +12,5 @@ struct Recipe: Identifiable {
     var id: Int
     var label: String
     var image: String
-    var calories: Double
+    var calories: Int
 }

@@ -11,18 +11,28 @@ import Alamofire
 import SwiftyJSON
 
 class Observer: ObservableObject {
+    private var timer: Timer?
     @Published var recipes = [Recipe]()
+    @Published var query = "" {
+        didSet {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
+                self.request(query: self.query)
+            })
+        }
+    }
     var baseURL = "https://api.edamam.com/search?app_id=01566945&app_key=31cab974f44572161ae3fed79767c869"
-    var r = "&q=chicken"
-    init() {
-        
-        AF.request(baseURL + r).responseData { (data) in
+    
+    func request (query: String) {
+        recipes.removeAll()
+        let url = baseURL + "&q=\(query)"
+        AF.request(url).responseData { (data) in
             let json = try! JSON(data: data.data!)
             let hits = json["hits"]
             var id = 0
             for i in hits {
                 let rec = i.1["recipe"]
-                let recipe = Recipe(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].doubleValue)
+                let recipe = Recipe(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].intValue)
                 self.recipes.append(recipe)
                 id += 1
             }

@@ -43,13 +43,6 @@ struct MenuView: View {
             
             Spacer()
         }.frame(width: UIScreen.main.bounds.width / 1.6)
-        .background(Color.white)
+        .background(Color.gray)
     }
 }
-
-
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView()
-//    }
-//}
