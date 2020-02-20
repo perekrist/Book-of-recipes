@@ -38,6 +38,9 @@ struct RecipeView: View {
                     Text("290g protein • 325g fat • 746g carbs")
                     Text("Ingredients:")
                         .bold()
+                    ForEach(0 ..< self.obs.recipes[self.index].ingredientLines.count, id: \.self) {
+                        Text(self.obs.recipes[self.index].ingredientLines[$0])
+                    }
                 }
                 
             }.background(Color.white)

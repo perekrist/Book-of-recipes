@@ -32,7 +32,7 @@ class Observer: ObservableObject {
             var id = 0
             for i in hits {
                 let rec = i.1["recipe"]
-                let recipe = Recipe(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].intValue)
+                let recipe = Recipe(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].intValue, ingredientLines: rec["ingredientLines"].arrayObject as! [String])
                 self.recipes.append(recipe)
                 id += 1
             }

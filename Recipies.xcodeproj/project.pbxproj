@@ -20,6 +20,7 @@
 		CA61BA3423FDC1B300B95161 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3323FDC1B300B95161 /* Recipe.swift */; };
 		CA61BA3623FDC1D600B95161 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3523FDC1D600B95161 /* Observer.swift */; };
 		CAEDD91723FF082900051E1E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDD91623FF082900051E1E /* RecipeView.swift */; };
+		CAEDD91923FF17AF00051E1E /* Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDD91823FF17AF00051E1E /* Rounded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		CA61BA3323FDC1B300B95161 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA61BA3523FDC1D600B95161 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		CAEDD91623FF082900051E1E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		CAEDD91823FF17AF00051E1E /* Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rounded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				CA61BA3323FDC1B300B95161 /* Recipe.swift */,
 				CA61BA3523FDC1D600B95161 /* Observer.swift */,
 				CAEDD91623FF082900051E1E /* RecipeView.swift */,
+				CAEDD91823FF17AF00051E1E /* Rounded.swift */,
 			);
 			path = Recipies;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA183F9123FDA1290006C875 /* AppDelegate.swift in Sources */,
+				CAEDD91923FF17AF00051E1E /* Rounded.swift in Sources */,
 				CA61BA3623FDC1D600B95161 /* Observer.swift in Sources */,
 				CA183FAE23FDB42D0006C875 /* MenuView.swift in Sources */,
 				CAEDD91723FF082900051E1E /* RecipeView.swift in Sources */,

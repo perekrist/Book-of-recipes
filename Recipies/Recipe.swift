@@ -13,4 +13,5 @@ struct Recipe: Identifiable {
     var label: String
     var image: String
     var calories: Int
+    var ingredientLines: [String]
 }
