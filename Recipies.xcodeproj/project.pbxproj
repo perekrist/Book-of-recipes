@@ -19,6 +19,7 @@
 		CA183FAE23FDB42D0006C875 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA183FAD23FDB42D0006C875 /* MenuView.swift */; };
 		CA61BA3423FDC1B300B95161 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3323FDC1B300B95161 /* Recipe.swift */; };
 		CA61BA3623FDC1D600B95161 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3523FDC1D600B95161 /* Observer.swift */; };
+		CAEDD91723FF082900051E1E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDD91623FF082900051E1E /* RecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CA183FAD23FDB42D0006C875 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CA61BA3323FDC1B300B95161 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA61BA3523FDC1D600B95161 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		CAEDD91623FF082900051E1E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				CA183FAD23FDB42D0006C875 /* MenuView.swift */,
 				CA61BA3323FDC1B300B95161 /* Recipe.swift */,
 				CA61BA3523FDC1D600B95161 /* Observer.swift */,
+				CAEDD91623FF082900051E1E /* RecipeView.swift */,
 			);
 			path = Recipies;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				CA183F9123FDA1290006C875 /* AppDelegate.swift in Sources */,
 				CA61BA3623FDC1D600B95161 /* Observer.swift in Sources */,
 				CA183FAE23FDB42D0006C875 /* MenuView.swift in Sources */,
+				CAEDD91723FF082900051E1E /* RecipeView.swift in Sources */,
 				CA183F9323FDA1290006C875 /* SceneDelegate.swift in Sources */,
 				CA183F9523FDA1290006C875 /* ContentView.swift in Sources */,
 				CA61BA3423FDC1B300B95161 /* Recipe.swift in Sources */,

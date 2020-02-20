@@ -14,7 +14,8 @@ struct ContentView: View {
     @State var view = 0
     @State var size = UIScreen.main.bounds.width / 1.6
     @ObservedObject var obs = Observer()
-    @State var txt = ""
+    @State var show = false
+    @State var id = 0
     
     var body: some View {
         ZStack {
@@ -38,6 +39,11 @@ struct ContentView: View {
                                 Text(i.label).bold()
                                 Text("\(i.calories) kcal")
                             }
+                        }.onTapGesture {
+                            self.show.toggle()
+                            self.id = i.id
+                        }.sheet(isPresented: self.$show) {
+                            RecipeView(obs: self.obs, index: self.$id)
                         }
                     }
                 }.navigationBarTitle("Recipes")
