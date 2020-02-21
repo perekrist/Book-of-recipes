@@ -13,6 +13,7 @@ import SwiftyJSON
 class Observer: ObservableObject {
     private var timer: Timer?
     @Published var recipes = [Recipe]()
+    @Published var favourite = UserDefaults.standard.array(forKey: "favourite")
     @Published var query = "" {
         didSet {
             timer?.invalidate()
@@ -25,8 +26,17 @@ class Observer: ObservableObject {
     
     func request (query: String) {
         recipes.removeAll()
-        let url = baseURL + "&q=\(query)"
-        AF.request(url).responseData { (data) in            let json = try! JSON(data: data.data!)
+        var newQuery = ""
+        for i in query {
+            if i == " " {
+                newQuery.append("+")
+            } else {
+                newQuery.append(i)
+            }
+        }
+        let url = baseURL + "&q=\(newQuery)"
+        AF.request(url).responseData { (data) in
+            let json = try! JSON(data: data.data!)
             let hits = json["hits"]
             var id = 0
             for i in hits {

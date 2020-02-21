@@ -29,7 +29,7 @@ struct ContentView: View {
                     .background(Color.orange)
                     .cornerRadius(20)
                     .padding(10)
-                    
+                                        
                     List(obs.recipes) {i in
                         HStack {
                             AnimatedImage(url: URL(string: i.image)).resizable()
@@ -51,7 +51,7 @@ struct ContentView: View {
                         self.size = 10
                     }, label: {
                         Image(systemName: "list.dash").resizable().frame(width: 20, height: 20)
-                    }).foregroundColor(.white))
+                    }).foregroundColor(.black))
             }
             HStack {
                 MenuView(size: $size)

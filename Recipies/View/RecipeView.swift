@@ -13,6 +13,7 @@ struct RecipeView: View {
     
     @ObservedObject var obs = Observer()
     @Binding var index : Int
+    @State var liked = false
     
     var body: some View {
         VStack {
@@ -51,6 +52,26 @@ struct RecipeView: View {
                             .foregroundColor(.black)
                     }
                     Spacer()
+                    Button(action: {
+                        self.liked = !self.liked
+                        if self.liked {
+                            self.obs.favourite?.append(Recipe(id: self.obs.recipes[self.index].id, label: self.obs.recipes[self.index].label, image: self.obs.recipes[self.index].image, calories: self.obs.recipes[self.index].calories, ingredientLines: self.obs.recipes[self.index].ingredientLines))
+                            UserDefaults.standard.set(self.obs.favourite, forKey: "favourite")
+                            print(self.obs.favourite)
+                        }
+                    }) {
+                        if self.liked {
+                            Image(systemName: "heart.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.red)
+                        } else {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.red)
+                        }
+                    }.padding()
                 }
             }.background(Color.white)
             .clipShape(Rounded())
