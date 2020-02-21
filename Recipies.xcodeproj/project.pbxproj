@@ -79,10 +79,9 @@
 				CA183F9B23FDA12C0006C875 /* LaunchScreen.storyboard */,
 				CA183F9E23FDA12C0006C875 /* Info.plist */,
 				CA183F9823FDA12C0006C875 /* Preview Content */,
-				CA183FAD23FDB42D0006C875 /* MenuView.swift */,
 				CA61BA3323FDC1B300B95161 /* Recipe.swift */,
 				CA61BA3523FDC1D600B95161 /* Observer.swift */,
-				CAEDD91623FF082900051E1E /* RecipeView.swift */,
+				CAA47F5D23FF8BDE008E1A85 /* View */,
 				CAEDD91823FF17AF00051E1E /* Rounded.swift */,
 			);
 			path = Recipies;
@@ -94,6 +93,15 @@
 				CA183F9923FDA12C0006C875 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CAA47F5D23FF8BDE008E1A85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA183FAD23FDB42D0006C875 /* MenuView.swift */,
+				CAEDD91623FF082900051E1E /* RecipeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

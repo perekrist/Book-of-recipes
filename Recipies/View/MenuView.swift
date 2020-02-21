@@ -41,6 +41,7 @@ struct MenuView: View {
                 Spacer()
             }.padding(.leading, 20)
             
+            
             Spacer()
         }.frame(width: UIScreen.main.bounds.width / 1.6)
         .background(Color.gray)

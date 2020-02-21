@@ -21,38 +21,40 @@ struct RecipeView: View {
                     .resizable()
                     .frame(width:UIScreen.main.bounds.width, height: 400)
                     .offset(y: -200)
-                VStack {
-                    Text("Recipe")
-                        .font(.system(size: 40))
-                        .bold()
-                        .foregroundColor(.white)
-                        .offset(y: -170)
-                }
+                Text("Recipe")
+                    .font(.system(size: 40))
+                    .bold()
+                    .foregroundColor(.white)
+                    .offset(y: -130)
             }
             
-            GeometryReader {geo in
+            GeometryReader { geo in
                 VStack {
                     Text("\(self.obs.recipes[self.index].label)")
                         .font(.title)
-                    Text("\(self.obs.recipes[self.index].calories)")
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.black)
+                        .padding()
+                    Text("\(self.obs.recipes[self.index].calories) kcal")
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.black)
                     Text("290g protein • 325g fat • 746g carbs")
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.black)
                     Text("Ingredients:")
                         .bold()
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.black)
                     ForEach(0 ..< self.obs.recipes[self.index].ingredientLines.count, id: \.self) {
                         Text(self.obs.recipes[self.index].ingredientLines[$0])
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.black)
                     }
+                    Spacer()
                 }
-                
             }.background(Color.white)
             .clipShape(Rounded())
-            .padding(.top, -275)
+            .padding(.top, -250)
         }
-    }
-}
-
-struct Rounded : Shape {
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 30, height: 30))
-        return Path(path.cgPath)
     }
 }

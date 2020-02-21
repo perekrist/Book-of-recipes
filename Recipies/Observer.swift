@@ -26,8 +26,7 @@ class Observer: ObservableObject {
     func request (query: String) {
         recipes.removeAll()
         let url = baseURL + "&q=\(query)"
-        AF.request(url).responseData { (data) in
-            let json = try! JSON(data: data.data!)
+        AF.request(url).responseData { (data) in            let json = try! JSON(data: data.data!)
             let hits = json["hits"]
             var id = 0
             for i in hits {

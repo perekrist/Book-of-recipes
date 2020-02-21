@@ -51,7 +51,7 @@ struct ContentView: View {
                         self.size = 10
                     }, label: {
                         Image(systemName: "list.dash").resizable().frame(width: 20, height: 20)
-                    }).foregroundColor(.black))
+                    }).foregroundColor(.white))
             }
             HStack {
                 MenuView(size: $size)
