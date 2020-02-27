@@ -8,12 +8,15 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import RealmSwift
+import Realm
 
 struct RecipeView: View {
     
     @ObservedObject var obs = Observer()
     @Binding var index : Int
     @State var liked = false
+    @State var star = false
     
     var body: some View {
         VStack {
@@ -53,11 +56,22 @@ struct RecipeView: View {
                     }
                     Spacer()
                     Button(action: {
-                        self.liked = !self.liked
+                        self.liked.toggle()
                         if self.liked {
-                            self.obs.favourite?.append(Recipe(id: self.obs.recipes[self.index].id, label: self.obs.recipes[self.index].label, image: self.obs.recipes[self.index].image, calories: self.obs.recipes[self.index].calories, ingredientLines: self.obs.recipes[self.index].ingredientLines))
-                            UserDefaults.standard.set(self.obs.favourite, forKey: "favourite")
-                            print(self.obs.favourite)
+                            let config = Realm.Configuration(schemaVersion: 1)
+                            do {
+                                let realm = try Realm(configuration: config)
+                                let newData = RecipeCore()
+                                newData.id = self.obs.recipes[self.index].id
+                                newData.label = self.obs.recipes[self.index].label
+                                newData.image = self.obs.recipes[self.index].image
+                                newData.calories = self.obs.recipes[self.index].calories
+                            try realm.write({
+                                realm.add(newData)
+                            })
+                            } catch {
+                                print(error.localizedDescription)
+                            }
                         }
                     }) {
                         if self.liked {
@@ -72,6 +86,19 @@ struct RecipeView: View {
                                 .foregroundColor(.red)
                         }
                     }.padding()
+                    
+                    Button(action: {
+                        let config = Realm.Configuration(schemaVersion: 1)
+                        do {
+                            let realm = try Realm(configuration: config)
+                            let result = realm.objects(RecipeCore.self)
+                            print(result)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }) {
+                        Text("Display")
+                    }
                 }
             }.background(Color.white)
             .clipShape(Rounded())

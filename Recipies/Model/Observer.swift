@@ -13,7 +13,7 @@ import SwiftyJSON
 class Observer: ObservableObject {
     private var timer: Timer?
     @Published var recipes = [Recipe]()
-    @Published var favourite = UserDefaults.standard.array(forKey: "favourite")
+//    @Published var favourite = UserDefaults.standard.array(forKey: "favourite")
     @Published var query = "" {
         didSet {
             timer?.invalidate()
