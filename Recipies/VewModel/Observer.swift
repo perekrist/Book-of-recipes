@@ -17,10 +17,20 @@ class Observer: ObservableObject {
         didSet {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
-                self.request(query: self.query)
+//                if self.diet != "" {
+//                    self.dietType = "&diet=" + self.diet
+//                } else {
+//                    self.dietType = ""
+//                }
+//                self.request(query: self.query)
             })
         }
     }
+    
+    @Published var diet = ""
+    
+    var dietType = ""
+    
     var baseURL = "https://api.edamam.com/search?app_id=01566945&app_key=31cab974f44572161ae3fed79767c869"
     
     func request (query: String) {
@@ -33,7 +43,7 @@ class Observer: ObservableObject {
                 newQuery.append(i)
             }
         }
-        let url = baseURL + "&q=\(newQuery)"
+        let url = baseURL + "&q=\(newQuery)" + dietType
         AF.request(url).responseData { (data) in
             let json = try! JSON(data: data.data!)
             let hits = json["hits"]

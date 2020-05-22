@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MenuView: View {
-
-    @Binding var size : CGFloat
+    
+    @Binding var size: CGFloat
     @State var isSearch = true
 
     var body: some View {
@@ -68,7 +68,8 @@ struct MenuView: View {
                 .cornerRadius(20)
             }
             Spacer()
-        }.frame(width: UIScreen.main.bounds.width / 1.6)
+        }
+        .frame(width: UIScreen.main.bounds.width / 1.6)
         .background(Color.gray)
     }
 }

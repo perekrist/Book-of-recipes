@@ -13,11 +13,14 @@ struct ContentView: View {
     
     @State private var view = 0
     @State private var size = UIScreen.main.bounds.width / 1.6
+    @State var isOpen = false
     
     @ObservedObject private var recipeViewModel = Observer()
     
     @State private var show = false
     @State private var id = 0
+    
+    
     
     var body: some View {
         ZStack {
@@ -27,6 +30,7 @@ struct ContentView: View {
                         HStack {
                             Button(action: {
                                 self.size = 10
+                                self.isOpen.toggle()
                             }, label: {
                                 Image(systemName: "list.dash").resizable().frame(width: 20, height: 20)
                             }).foregroundColor(.white)
@@ -63,37 +67,12 @@ struct ContentView: View {
                     .padding(10)
                     
                     HStack {
-                        Button(action: {
-                            
-                        }) {
-                            Text("Balanced")
-                                .foregroundColor(.white)
-                                .padding(6)
-                                .background(RoundedRectangle(cornerRadius: 30).stroke(Color.white, lineWidth: 2))
-                            
-                        }.padding(.leading, 10)
-                        
+                        DietButton(type: "balanced", recipeViewModel: self.recipeViewModel)
                         Spacer()
-                        
-                        Button(action: {
-                            
-                        }) {
-                            Text("High-Fiber")
-                                .foregroundColor(.white)
-                                .padding(6)
-                                .background(RoundedRectangle(cornerRadius: 30).stroke(Color.white, lineWidth: 2))
-                        }.padding(.horizontal, 10)
-                        
+                        DietButton(type: "high-fiber", recipeViewModel: self.recipeViewModel)
                         Spacer()
+                        DietButton(type: "high-protein", recipeViewModel: self.recipeViewModel)
                         
-                        Button(action: {
-                            
-                        }) {
-                            Text("High-Protein")
-                                .foregroundColor(.white)
-                                .padding(6)
-                                .background(RoundedRectangle(cornerRadius: 30).stroke(Color.white, lineWidth: 2))
-                        }.padding(.trailing, 10)
                     }.padding(.bottom, 20)
                 }
                 .padding(.top, 25)
@@ -122,15 +101,50 @@ struct ContentView: View {
                     }.padding(.vertical)
                 }
             }
+            .offset(x: isOpen ? 300 : 0)
             
-            HStack {
-                MenuView(size: $size)
-                    .cornerRadius(20)
-                    .padding(.leading, -size)
-                    .offset(x: -size)
-                Spacer()
+            if isOpen {
+                Rectangle()
+                    .edgesIgnoringSafeArea(.vertical)
+                    .opacity(0.6)
+                    .onTapGesture {
+                        self.isOpen.toggle()
+                }
+                
+                HStack {
+                    List(0 ..< 4) { item in
+                        Text("Hello, World!")
+                    }
+                    .frame(width: 300)
+                    .padding(.top, 44)
+                    
+                    Spacer()
+                }
+                .edgesIgnoringSafeArea(.top)
+                
             }
             
-        }.animation(.spring())
+        }
+        .animation(.easeOut)
+    }
+}
+
+struct DietButton: View {
+    @State var type: String
+    @ObservedObject var recipeViewModel: Observer
+    
+    var body: some View {
+        Button(action: {
+            if self.recipeViewModel.diet != self.type {
+                self.recipeViewModel.diet = self.type
+            } else {
+                self.recipeViewModel.diet = ""
+            }
+        }) {
+            Text(type)
+                .foregroundColor(self.recipeViewModel.diet == type ? .purple : .white)
+                .padding(6)
+                .background(RoundedRectangle(cornerRadius: 30).stroke(self.recipeViewModel.diet == type ? Color.purple : Color.white, lineWidth: 2).background(self.recipeViewModel.diet == type ? Color.white : Color.purple))
+        }.padding(.horizontal, 10)
     }
 }
