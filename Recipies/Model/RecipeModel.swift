@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable {
+struct RecipeModel: Identifiable {
     var id: Int
     var label: String
     var image: String

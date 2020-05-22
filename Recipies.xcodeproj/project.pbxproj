@@ -17,7 +17,7 @@
 		CA183FA923FDB3D80006C875 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = CA183FA823FDB3D80006C875 /* SwiftyJSON */; };
 		CA183FAC23FDB3FA0006C875 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CA183FAB23FDB3FA0006C875 /* SDWebImageSwiftUI */; };
 		CA183FAE23FDB42D0006C875 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA183FAD23FDB42D0006C875 /* MenuView.swift */; };
-		CA61BA3423FDC1B300B95161 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3323FDC1B300B95161 /* Recipe.swift */; };
+		CA61BA3423FDC1B300B95161 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3323FDC1B300B95161 /* RecipeModel.swift */; };
 		CA61BA3623FDC1D600B95161 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61BA3523FDC1D600B95161 /* Observer.swift */; };
 		CAC864D42407AFDF0078EB5C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAC864D32407AFDF0078EB5C /* RealmSwift */; };
 		CAC864D62407AFDF0078EB5C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAC864D52407AFDF0078EB5C /* Realm */; };
@@ -36,7 +36,7 @@
 		CA183F9C23FDA12C0006C875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA183F9E23FDA12C0006C875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA183FAD23FDB42D0006C875 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		CA61BA3323FDC1B300B95161 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		CA61BA3323FDC1B300B95161 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		CA61BA3523FDC1D600B95161 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		CAC864D72407B1640078EB5C /* RecipeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCore.swift; sourceTree = "<group>"; };
 		CAEDD91623FF082900051E1E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		CA183F8F23FDA1290006C875 /* Recipies */ = {
 			isa = PBXGroup;
 			children = (
+				CAE6F9892476F2B200FFCE67 /* VewModel */,
+				CAA47F5D23FF8BDE008E1A85 /* View */,
 				CA5E6DD32406D7EB0070ECF9 /* Model */,
 				CA183F9023FDA1290006C875 /* AppDelegate.swift */,
 				CA183F9223FDA1290006C875 /* SceneDelegate.swift */,
@@ -85,7 +87,6 @@
 				CA183F9B23FDA12C0006C875 /* LaunchScreen.storyboard */,
 				CA183F9E23FDA12C0006C875 /* Info.plist */,
 				CA183F9823FDA12C0006C875 /* Preview Content */,
-				CAA47F5D23FF8BDE008E1A85 /* View */,
 			);
 			path = Recipies;
 			sourceTree = "<group>";
@@ -101,9 +102,7 @@
 		CA5E6DD32406D7EB0070ECF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CAEDD91823FF17AF00051E1E /* Rounded.swift */,
-				CA61BA3323FDC1B300B95161 /* Recipe.swift */,
-				CA61BA3523FDC1D600B95161 /* Observer.swift */,
+				CA61BA3323FDC1B300B95161 /* RecipeModel.swift */,
 				CAC864D72407B1640078EB5C /* RecipeCore.swift */,
 			);
 			path = Model;
@@ -112,11 +111,20 @@
 		CAA47F5D23FF8BDE008E1A85 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAEDD91823FF17AF00051E1E /* Rounded.swift */,
 				CA183F9423FDA1290006C875 /* ContentView.swift */,
 				CA183FAD23FDB42D0006C875 /* MenuView.swift */,
 				CAEDD91623FF082900051E1E /* RecipeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CAE6F9892476F2B200FFCE67 /* VewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA61BA3523FDC1D600B95161 /* Observer.swift */,
+			);
+			path = VewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +219,7 @@
 				CAEDD91723FF082900051E1E /* RecipeView.swift in Sources */,
 				CA183F9323FDA1290006C875 /* SceneDelegate.swift in Sources */,
 				CA183F9523FDA1290006C875 /* ContentView.swift in Sources */,
-				CA61BA3423FDC1B300B95161 /* Recipe.swift in Sources */,
+				CA61BA3423FDC1B300B95161 /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

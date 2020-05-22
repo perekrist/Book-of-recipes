@@ -13,7 +13,7 @@ struct MenuView: View {
     @Binding var size : CGFloat
     @State var isSearch = true
 
-    var body : some View{
+    var body: some View {
         
         VStack {
             HStack {

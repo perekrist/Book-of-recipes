@@ -11,10 +11,8 @@ import RealmSwift
 import SwiftUI
 
 class RecipeCore: Object {
-    
     @objc var id: Int = 0
     @objc var label: String = ""
     @objc var image: String = ""
     @objc var calories: Int = 0
-    
 }

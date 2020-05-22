@@ -12,8 +12,7 @@ import SwiftyJSON
 
 class Observer: ObservableObject {
     private var timer: Timer?
-    @Published var recipes = [Recipe]()
-//    @Published var favourite = UserDefaults.standard.array(forKey: "favourite")
+    @Published var recipes = [RecipeModel]()
     @Published var query = "" {
         didSet {
             timer?.invalidate()
@@ -41,7 +40,7 @@ class Observer: ObservableObject {
             var id = 0
             for i in hits {
                 let rec = i.1["recipe"]
-                let recipe = Recipe(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].intValue, ingredientLines: rec["ingredientLines"].arrayObject as! [String])
+                let recipe = RecipeModel(id: id, label: rec["label"].stringValue, image: rec["image"].stringValue, calories: rec["calories"].intValue, ingredientLines: rec["ingredientLines"].arrayObject as! [String])
                 self.recipes.append(recipe)
                 id += 1
             }
