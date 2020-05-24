@@ -22,7 +22,7 @@ class Observer: ObservableObject {
 //                } else {
 //                    self.dietType = ""
 //                }
-//                self.request(query: self.query)
+                self.request(query: self.query)
             })
         }
     }

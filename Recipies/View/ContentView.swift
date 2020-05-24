@@ -112,8 +112,9 @@ struct ContentView: View {
                 }
                 
                 HStack {
-                    List(0 ..< 4) { item in
-                        Text("Hello, World!")
+                    List {
+                        Text("Search")
+                        Text("Favourite")
                     }
                     .frame(width: 300)
                     .padding(.top, 44)
